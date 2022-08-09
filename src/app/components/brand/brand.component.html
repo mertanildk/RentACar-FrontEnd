@@ -1,0 +1,18 @@
+<div *ngIf="dataLoaded == false" class="d-flex align-items-center">
+  <strong>Loading...</strong>
+  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+</div>
+
+<table *ngIf="dataLoaded == true" class="table table-striped">
+  <tr>
+    <th>BrandId</th>
+    <th>BrandName</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let brand of brands">
+      <td>{{ brand.id }}</td>
+      <td>{{ brand.brandName }}</td>
+
+    </tr>
+  </tbody>
+</table>

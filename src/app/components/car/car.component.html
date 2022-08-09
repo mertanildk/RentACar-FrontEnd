@@ -1,0 +1,27 @@
+<div *ngIf="dataLoaded == false" class="d-flex align-items-center">
+  <strong>Loading...</strong>
+  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+</div>
+
+<table *ngIf="dataLoaded == true" class="table table-striped">
+  <tr>
+    <th>carId</th>
+    <th>brandId</th>
+    <th>colorId</th>
+    <th>modelName</th>
+    <th>modelYear</th>
+    <th>description</th>
+    <th>dailyPrice</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let car of cars">
+      <td>{{ car.id }}</td>
+      <td>{{ car.brandId }}</td>
+      <td>{{ car.colorId }}</td>
+      <td>{{ car.modelName }}</td>
+      <td>{{ car.modelYear }}</td>
+      <td>{{ car.description }}</td>
+      <td>{{ car.dailyPrice }}</td>
+    </tr>
+  </tbody>
+</table>
