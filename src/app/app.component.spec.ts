@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'rentACarFrontEnd'`, () => {
+  it(`should have as title 'Rentacar-Frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('rentACarFrontEnd');
+    expect(app.title).toEqual('Rentacar-Frontend');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('rentACarFrontEnd app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Rentacar-Frontend app is running!');
   });
 });

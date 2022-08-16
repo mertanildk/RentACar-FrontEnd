@@ -1,0 +1,32 @@
+<div class="mb-3">
+  <label for="filterText" class="form-label">Araç Ara</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="Arama ifadesi giriniz"
+  />
+</div>
+<div *ngIf="filterText" class="alert alert-success">{{ filterText }} aradınız.</div>
+
+
+<tbody>
+<div  class="row d-flex pt-5 ps-5">
+  <div
+    class="card col-3 m-1 me-5 bg-dark p-1"
+    *ngFor="let carDetailDto of carDetailsDto | filterPipe:filterText"
+  >
+    <img src="https://localhost:5001/uploads/images/{{carDetailDto.imagePath}}" class="card-img-top" alt="...">
+    <div class="card-body d-flex flex-column align-items-center">
+      <h2 class="card-title text-center appcard-title text-light">{{carDetailDto.brandName}}  {{carDetailDto.modelName}}</h2>
+      <p class="card-text text-center text-light">{{carDetailDto.modelYear}}</p>
+      <p class="card-text text-center appcard-price text-light">₺{{carDetailDto.dailyPrice}}</p>
+      <a routerLink="/cars/{{carDetailDto.id}}" class="btn btn-secondary"  >View More</a>
+      <td><button (click)="addToCart(carDetailDto)" type="button" class="btn btn-success">Sepete ekle</button></td>
+
+    </div>
+
+  </div>
+</div>
+</tbody>

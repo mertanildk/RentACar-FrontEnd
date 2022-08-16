@@ -1,18 +1,17 @@
-<div *ngIf="dataLoaded == false" class="d-flex align-items-center">
-  <strong>Loading...</strong>
-  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+<div class="bg-secondary text-white btn w-100 mt-1 mb-1" >Brands</div>
+
+<div class="selected">
+  <mat-form-field appearance="fill">
+    <mat-label>Select a Brand</mat-label>
+
+    <mat-select [(value)]="selected">
+      <mat-option routerLink="/cardetails"
+      [class]="getAllBrandClass()"
+      (click) = "clearCurrentBrand()" value="Hepsi">Hepsi</mat-option>
+      <mat-option *ngFor="let brand of brands"
+      routerLink="/cardetails/brand/{{brand.id}}"
+      [class]="getCurrentBrandClass(brand)"
+      (click) = 'setCurrentBrand(brand)' value="option1">{{brand.brandName}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
-
-<table *ngIf="dataLoaded == true" class="table table-striped">
-  <tr>
-    <th>BrandId</th>
-    <th>BrandName</th>
-  </tr>
-  <tbody>
-    <tr *ngFor="let brand of brands">
-      <td>{{ brand.id }}</td>
-      <td>{{ brand.brandName }}</td>
-
-    </tr>
-  </tbody>
-</table>
